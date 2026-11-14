@@ -122,7 +122,7 @@ The Sandbox API plan is free and allows 100 calls a month; plans and quotas are 
 
 ## Limits
 
-- The three keyless tools use Zentria Flow's free public endpoints: 120 requests per 10 minutes per IP address. When the limit is reached the tool says so and returns no rate; it does not retry by itself.
+- The three keyless tools use Zentria Flow's free public endpoints: tariff checks are limited to 60 an hour per IP address and HTS searches to 600 an hour, each counted over a rolling 60 minutes. `compare_origins` uses one tariff check per origin, so a six-origin comparison uses 6 of the 60. When the limit is reached the tool says so, gives the wait the server sent, and returns no rate; it does not retry by itself.
 - `landed_cost` counts against the quota of the API plan behind the key.
 - Requests time out after 20 seconds.
 

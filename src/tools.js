@@ -190,7 +190,7 @@ async function tariffCheck(ctx, { hts, origin, as_of, quantity, quantity_unit, v
 function rateLimitSentence(err) {
   const wait = err.retryAfter && /^\d{1,5}$/.test(err.retryAfter) ? ` Retry after ${err.retryAfter} seconds.` : '';
   return `Zentria Flow rate limit reached (HTTP 429): ${err.message}${wait} ` +
-    'The free tools allow 120 requests per 10 minutes per IP address. No rate is shown because none was returned.';
+    'The free tools allow 60 tariff checks and 600 HTS searches an hour per IP address. No rate is shown because none was returned.';
 }
 
 function failure(err) {
@@ -263,7 +263,8 @@ export const TOOLS = [
     title: 'Compare US tariffs by origin',
     description:
       `The US tariff layers of one HTS code from 2 to ${MAX_ORIGINS} countries of origin, side by side, lowest ` +
-      'total first. Calls the Zentria Flow engine once per origin, 2 seconds apart, so it takes a few seconds. ' +
+      'total first. Calls the Zentria Flow engine once per origin, 2 seconds apart, so it takes a few seconds; ' +
+      'each origin uses one of the 60 free tariff checks an hour per IP address. ' +
       'Duty only: freight, fees and supplier price are not compared. Planning estimate, not a customs ruling.',
     inputSchema: {
       type: 'object',
