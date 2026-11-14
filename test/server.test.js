@@ -462,7 +462,7 @@ test('ZENTRIA_API_BASE: https only, except a local development host', () => {
 
 test('package.json, server.json and the server agree', () => {
   assert.equal(PKG.name, 'zentria-flow-mcp');
-  assert.equal(PKG.version, '0.1.0');
+  assert.equal(PKG.version, '0.2.0');
   assert.equal(PKG.private, false);
   assert.equal(PKG.license, 'MIT');
   assert.equal(PKG.type, 'module');
@@ -477,12 +477,17 @@ test('package.json, server.json and the server agree', () => {
 
   assert.equal(SERVER_JSON.version, PKG.version);
   assert.ok(SERVER_JSON.description.length <= 100);
-  const [npm] = SERVER_JSON.packages;
-  assert.equal(npm.registryType, 'npm');
-  assert.equal(npm.identifier, PKG.name);
-  assert.equal(npm.version, PKG.version);
-  assert.deepEqual(npm.transport, { type: 'stdio' });
-  const key = npm.environmentVariables.find((v) => v.name === 'ZENTRIA_API_KEY');
+  assert.equal(SERVER_JSON.name, PKG.mcpName);
+  assert.equal(SERVER_JSON.packages.length, 1);
+  const [oci] = SERVER_JSON.packages;
+  assert.equal(oci.registryType, 'oci');
+  assert.equal(oci.identifier, `ghcr.io/orhansavash/zentria-flow-mcp:${PKG.version}`);
+  assert.equal(oci.version, undefined);                   // the MCP Registry rejects "version" on an oci package
+  assert.deepEqual(oci.transport, { type: 'stdio' });
+  // The MCP Registry proves ownership of the image by this label.
+  assert.ok(readFileSync(here('../Dockerfile'), 'utf8')
+    .includes(`LABEL io.modelcontextprotocol.server.name="${SERVER_JSON.name}"`));
+  const key = oci.environmentVariables.find((v) => v.name === 'ZENTRIA_API_KEY');
   assert.equal(key.isSecret, true);
   assert.equal(key.isRequired, false);
 });
@@ -513,7 +518,7 @@ test('stdio: the binary answers one JSON line per request and writes logs to std
   assert.equal(answers[0].result.serverInfo.version, PKG.version);
   assert.equal(answers[1].result.tools.length, 4);
   assert.equal(answers[2].result.isError, true);
-  assert.match(err, /zentria-flow-mcp 0\.1\.0 ready \(stdio\), API https:\/\/zentriaflow\.com/);
+  assert.match(err, /zentria-flow-mcp 0.2.0 ready \(stdio\), API https:\/\/zentriaflow\.com/);
   assert.equal((out + err).includes(KEY), false);
 });
 

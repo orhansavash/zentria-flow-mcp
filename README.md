@@ -105,6 +105,8 @@ docker run -i --rm zentria-flow-mcp
 
 Add `-e ZENTRIA_API_KEY=your_key` to use `landed_cost`. MCP clients that start servers with Docker use `"command": "docker", "args": ["run", "-i", "--rm", "zentria-flow-mcp"]`.
 
+Each release is also published as a ready-made image, so the build step can be skipped: `docker run -i --rm ghcr.io/orhansavash/zentria-flow-mcp:0.2.0`.
+
 ### Local-model clients and other MCP clients
 
 Any client that can start a stdio MCP server from a command works, including the ones that run local models (for example LM Studio, Jan, Continue, Cline and Open WebUI through an MCP-to-OpenAPI proxy). Use the `mcpServers` block above in the client's MCP configuration file. The model runs on your machine; the tool calls still go to zentriaflow.com over HTTPS, because the tariff data lives there.

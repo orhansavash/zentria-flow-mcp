@@ -1,0 +1,161 @@
+# Push a version tag (for example v0.2.0) to release:
+#   1. the Docker image goes to ghcr.io/orhansavash/zentria-flow-mcp:<version>
+#   2. server.json goes to the official MCP Registry (registry.modelcontextprotocol.io)
+#
+# No secrets are stored: GHCR uses the workflow's GITHUB_TOKEN, and the MCP
+# Registry uses GitHub OIDC, which grants this repository's owner the
+# io.github.orhansavash/* namespace.
+#
+# The MCP Registry reads the image anonymously, so the GHCR package must be
+# public. The first push may create it private: make it public once (package page >
+# Package settings > Change visibility), then use "Re-run failed jobs" on the run.
+name: Publish to GHCR and the MCP Registry
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions: {}
+
+concurrency:
+  group: publish-mcp-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  IMAGE: ghcr.io/orhansavash/zentria-flow-mcp
+  SERVER_NAME: io.github.orhansavash/zentria-flow-mcp
+
+jobs:
+  image:
+    name: Build and push the Docker image
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write # push to ghcr.io with GITHUB_TOKEN
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7.1.0
+        with:
+          node-version: "20"
+
+      - name: Run the tests
+        run: node --test
+
+      - name: Check that the tag, package.json and server.json agree
+        id: version
+        run: |
+          set -euo pipefail
+          version="${GITHUB_REF_NAME#v}"
+          node .github/scripts/check-release.mjs "$version"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v4.4.0
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4.4.1
+
+      - name: Log in to ghcr.io
+        uses: docker/login-action@v4.8.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v7.4.0
+        with:
+          context: .
+          platforms: linux/amd64,linux/arm64
+          push: true
+          # Plain image index, without attestation manifests, so the registry's
+          # label check reads an ordinary image.
+          provenance: false
+          sbom: false
+          tags: |
+            ${{ env.IMAGE }}:${{ steps.version.outputs.version }}
+            ${{ env.IMAGE }}:latest
+
+      - name: Check the pushed image (ownership label and version)
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          set -euo pipefail
+          docker pull --quiet "$IMAGE:$VERSION"
+          label="$(docker inspect --format '{{ index .Config.Labels "io.modelcontextprotocol.server.name" }}' "$IMAGE:$VERSION")"
+          if [ "$label" != "$SERVER_NAME" ]; then
+            echo "::error::Image label io.modelcontextprotocol.server.name is '$label', expected '$SERVER_NAME'"
+            exit 1
+          fi
+          reported="$(docker run --rm "$IMAGE:$VERSION" --version)"
+          if [ "$reported" != "$VERSION" ]; then
+            echo "::error::The image reports version '$reported', expected '$VERSION'"
+            exit 1
+          fi
+
+  registry:
+    name: Publish server.json to the MCP Registry
+    needs: image
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write # GitHub OIDC login to the MCP Registry
+    env:
+      MCP_PUBLISHER_VERSION: v1.8.9
+      VERSION: ${{ needs.image.outputs.version }}
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Check that the image is public
+        run: |
+          set -euo pipefail
+          path="${IMAGE#ghcr.io/}"
+          token="$(curl --silent --location "https://ghcr.io/token?scope=repository:${path}:pull" | jq -r '.token // empty' || true)"
+          code="$(curl --silent --location --output /dev/null --write-out '%{http_code}' \
+            --header "Authorization: Bearer ${token}" \
+            --header 'Accept: application/vnd.oci.image.index.v1+json, application/vnd.docker.distribution.manifest.list.v2+json, application/vnd.oci.image.manifest.v1+json, application/vnd.docker.distribution.manifest.v2+json' \
+            "https://ghcr.io/v2/${path}/manifests/${VERSION}" || true)"
+          if [ "$code" != "200" ]; then
+            echo "::error::$IMAGE:$VERSION cannot be pulled without signing in (HTTP $code). The MCP Registry only accepts public images. Open https://github.com/users/orhansavash/packages/container/package/zentria-flow-mcp, then Package settings > Change visibility > Public, and choose 'Re-run failed jobs' on this run."
+            exit 1
+          fi
+
+      - name: Install cosign
+        uses: sigstore/cosign-installer@6f9f17788090df1f26f669e9d70d6ae9567deba6 # v4.1.2
+
+      - name: Download and verify mcp-publisher
+        run: |
+          set -euo pipefail
+          os="$(uname -s | tr '[:upper:]' '[:lower:]')"
+          arch="$(uname -m | sed 's/x86_64/amd64/;s/aarch64/arm64/')"
+          archive="mcp-publisher_${os}_${arch}.tar.gz"
+          base_url="https://github.com/modelcontextprotocol/registry/releases/download/${MCP_PUBLISHER_VERSION}"
+
+          curl --fail --location --silent --show-error --output "$archive" "$base_url/$archive"
+          curl --fail --location --silent --show-error --output "$archive.sigstore.json" "$base_url/$archive.sigstore.json"
+          cosign verify-blob \
+            --bundle "$archive.sigstore.json" \
+            --certificate-identity "https://github.com/modelcontextprotocol/registry/.github/workflows/release.yml@refs/tags/${MCP_PUBLISHER_VERSION}" \
+            --certificate-oidc-issuer "https://token.actions.githubusercontent.com" \
+            "$archive"
+          tar xzf "$archive" mcp-publisher
+          rm -f "$archive" "$archive.sigstore.json"
+
+      - name: Validate server.json
+        run: ./mcp-publisher validate server.json
+
+      - name: Log in to the MCP Registry (GitHub OIDC)
+        run: ./mcp-publisher login github-oidc
+
+      - name: Publish server.json to the MCP Registry
+        run: ./mcp-publisher publish server.json
