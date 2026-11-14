@@ -1,0 +1,51 @@
+{
+  "name": "zentria-flow-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for Zentria Flow: US tariff layers by HTS code and origin, origin comparison, HTSUS search and landed cost.",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "tariff",
+    "hts",
+    "htsus",
+    "customs-duty",
+    "landed-cost",
+    "section-301",
+    "section-232",
+    "import"
+  ],
+  "homepage": "https://zentriaflow.com/developers",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/orhansavash/zentria-flow-mcp.git"
+  },
+  "bugs": {
+    "email": "support@zentriaflow.com"
+  },
+  "license": "MIT",
+  "author": "Zentria Flow, Inc. (https://zentriaflow.com)",
+  "private": false,
+  "type": "module",
+  "main": "src/server.js",
+  "exports": {
+    ".": "./src/server.js",
+    "./tools": "./src/tools.js"
+  },
+  "bin": {
+    "zentria-flow-mcp": "src/index.js"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE",
+    "server.json"
+  ],
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "mcpName": "io.github.orhansavash/zentria-flow-mcp"
+}

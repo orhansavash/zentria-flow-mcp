@@ -1,0 +1,435 @@
+{
+ "tshirt_cn": {
+  "ok": true,
+  "hts": "6109.10.00",
+  "digits": "61091000",
+  "origin": "CN",
+  "description": "T-shirts, singlets, tank tops and similar garments, knitted or crocheted — Of cotton",
+  "mfn": {
+   "rate": 16.5,
+   "text": "16.5%",
+   "exact": true
+  },
+  "us_mfn": null,
+  "section_301": {
+   "rate": 7.5,
+   "heading": "9903.88.15",
+   "label": "List 4A",
+   "partial": false,
+   "note": ""
+  },
+  "forced_labor": {
+   "rate": 12.5,
+   "status": "applies",
+   "tier": "12.5% flat",
+   "reason": "",
+   "covered_origin": true
+  },
+  "section_232": {
+   "rate": 0.0,
+   "program": null,
+   "note": "",
+   "conditional": []
+  },
+  "section_338": {
+   "rate": 0.0,
+   "program": null,
+   "heading": null,
+   "partial": false,
+   "note": ""
+  },
+  "import_ban": null,
+  "upcoming": null,
+  "total_rate": 36.5,
+  "usmca": null,
+  "cafta_dr": null,
+  "notes": [
+   "Section 301 (List 4A, heading 9903.88.15): 7.5% on China-origin goods, in addition to the 16.5% MFN duty."
+  ],
+  "source": "HTSUS 2026 Revision 23 (USITC, in force 10 Nov 2026, checked 10 Nov 2026): MFN rates, China Section 301 lists (chapter 99 U.S. notes 20 and 31) and forced-labor Section 301 exemptions (U.S. note 52)",
+  "as_of": "2026-11-14",
+  "as_of_is_today": true,
+  "as_of_range": {
+   "min": "2026-11-14",
+   "max": "2027-11-14"
+  },
+  "scheduled_changes": []
+ },
+ "tshirt_vn": {
+  "ok": true,
+  "hts": "6109.10.00",
+  "digits": "61091000",
+  "origin": "VN",
+  "description": "T-shirts, singlets, tank tops and similar garments, knitted or crocheted — Of cotton",
+  "mfn": {
+   "rate": 16.5,
+   "text": "16.5%",
+   "exact": true
+  },
+  "us_mfn": null,
+  "section_301": {
+   "rate": 0.0,
+   "heading": null,
+   "label": null,
+   "partial": false,
+   "note": ""
+  },
+  "forced_labor": {
+   "rate": 12.5,
+   "status": "applies",
+   "tier": "12.5% flat",
+   "reason": "",
+   "covered_origin": true
+  },
+  "section_232": {
+   "rate": 0.0,
+   "program": null,
+   "note": "",
+   "conditional": []
+  },
+  "section_338": {
+   "rate": 0.0,
+   "program": null,
+   "heading": null,
+   "partial": false,
+   "note": ""
+  },
+  "import_ban": null,
+  "upcoming": null,
+  "total_rate": 29.0,
+  "usmca": null,
+  "cafta_dr": null,
+  "notes": [],
+  "source": "HTSUS 2026 Revision 23 (USITC, in force 10 Nov 2026, checked 10 Nov 2026): MFN rates, China Section 301 lists (chapter 99 U.S. notes 20 and 31) and forced-labor Section 301 exemptions (U.S. note 52)",
+  "as_of": "2026-11-14",
+  "as_of_is_today": true,
+  "as_of_range": {
+   "min": "2026-11-14",
+   "max": "2027-11-14"
+  },
+  "scheduled_changes": []
+ },
+ "tshirt_mx": {
+  "ok": true,
+  "hts": "6109.10.00",
+  "digits": "61091000",
+  "origin": "MX",
+  "description": "T-shirts, singlets, tank tops and similar garments, knitted or crocheted — Of cotton",
+  "mfn": {
+   "rate": 16.5,
+   "text": "16.5%",
+   "exact": true
+  },
+  "us_mfn": null,
+  "section_301": {
+   "rate": 0.0,
+   "heading": null,
+   "label": null,
+   "partial": false,
+   "note": ""
+  },
+  "forced_labor": {
+   "rate": 10.0,
+   "status": "applies",
+   "tier": "10% flat (non-USMCA goods)",
+   "reason": "Goods that do not qualify under USMCA pay the 10.0% forced-labor tariff, which is included in the total. USMCA-qualifying goods (with a certification of origin) are exempt.",
+   "covered_origin": true
+  },
+  "section_232": {
+   "rate": 0.0,
+   "program": null,
+   "note": "",
+   "conditional": []
+  },
+  "section_338": {
+   "rate": 0.0,
+   "program": null,
+   "heading": null,
+   "partial": false,
+   "note": ""
+  },
+  "import_ban": null,
+  "upcoming": null,
+  "total_rate": 26.5,
+  "usmca": {
+   "qualifying_total": 0.0,
+   "qualifying": "USMCA-qualifying goods (with a certification of origin): 0% MFN and no forced-labor tariff.",
+   "non_qualifying_total": 26.5,
+   "non_qualifying": "Non-qualifying goods: 16.5% MFN + 10.0% forced-labor tariff = 26.5%.",
+   "basis": "non_qualifying"
+  },
+  "cafta_dr": null,
+  "notes": [],
+  "source": "HTSUS 2026 Revision 23 (USITC, in force 10 Nov 2026, checked 10 Nov 2026): MFN rates, China Section 301 lists (chapter 99 U.S. notes 20 and 31) and forced-labor Section 301 exemptions (U.S. note 52)",
+  "as_of": "2026-11-14",
+  "as_of_is_today": true,
+  "as_of_range": {
+   "min": "2026-11-14",
+   "max": "2027-11-14"
+  },
+  "scheduled_changes": []
+ },
+ "solar_de": {
+  "ok": true,
+  "hts": "8541.43.00",
+  "digits": "85414300",
+  "origin": "DE",
+  "description": "Semiconductor devices (for example, diodes, transistors, semiconductor-based transducers); photosensitive semiconductor devices, including photovoltaic cells whether or not assembled in modules or made up into panels; light-emitting diodes (LED), whether or not assembled with other light-emitting diodes (LED); mounted piezo-electric crystals; parts thereof — Photosensitive semiconductor devices, including photovoltaic cells whether or not assembled in modules or made up into panels; light-emitting diodes (LED) › Photovoltaic cells assembled in modules or made up into panels",
+  "mfn": {
+   "rate": 0.0,
+   "text": "Free",
+   "exact": true
+  },
+  "us_mfn": null,
+  "section_301": {
+   "rate": 0.0,
+   "heading": null,
+   "label": null,
+   "partial": false,
+   "note": ""
+  },
+  "forced_labor": {
+   "rate": 10.0,
+   "status": "applies",
+   "tier": "10% combined floor (net of MFN)",
+   "reason": "EU/Taiwan goods pay MFN + forced-labor = 10% combined; MFN here is 0.0%, so the addition is 10.0%.",
+   "covered_origin": true
+  },
+  "section_232": {
+   "rate": 0.0,
+   "program": null,
+   "note": "",
+   "conditional": []
+  },
+  "section_338": {
+   "rate": 0.0,
+   "program": null,
+   "heading": null,
+   "partial": false,
+   "note": ""
+  },
+  "import_ban": null,
+  "upcoming": {
+   "effective": "2026-12-04",
+   "rate": 0.15,
+   "message": "From 4 December 2026, solar modules pay an additional Section 232 duty of 15% for goods of the EU, Japan, Korea, Switzerland, Liechtenstein and Taiwan (the amount that brings the normal MFN duty, 0% here, plus Section 232 to 15%: Proclamation 11052, clause 5(b)). That 15% covers the MFN duty and Section 232 only; it is not the total duty. The forced-labor Section 301 tariff is a separate duty and is charged on top of it where the line is not exempt: solar goods are not on that tariff's Section 232 exemption list (HTSUS ch. 99 U.S. note 52(f)). A minimum import price of $0.38 per watt starts the same day. Goods entered before that date are not affected."
+  },
+  "total_rate": 10.0,
+  "usmca": null,
+  "cafta_dr": null,
+  "notes": [],
+  "source": "HTSUS 2026 Revision 23 (USITC, in force 10 Nov 2026, checked 10 Nov 2026): MFN rates, China Section 301 lists (chapter 99 U.S. notes 20 and 31) and forced-labor Section 301 exemptions (U.S. note 52); Section 232 solar: Proclamation 11052",
+  "as_of": "2026-11-14",
+  "as_of_is_today": true,
+  "as_of_range": {
+   "min": "2026-11-14",
+   "max": "2027-11-14"
+  },
+  "scheduled_changes": [
+   {
+    "effective_date": "2026-12-04",
+    "total_rate_before": 10.0,
+    "total_rate_after": 25.0,
+    "layers_changed": [
+     {
+      "layer": "section_232",
+      "label": "Section 232 solar and polysilicon",
+      "before": 0.0,
+      "after": 15.0
+     }
+    ],
+    "reason": "From 4 December 2026, solar modules pay an additional Section 232 duty of 15% for goods of the EU, Japan, Korea, Switzerland, Liechtenstein and Taiwan (the amount that brings the normal MFN duty, 0% here, plus Section 232 to 15%: Proclamation 11052, clause 5(b)). That 15% covers the MFN duty and Section 232 only; it is not the total duty. The forced-labor Section 301 tariff is a separate duty and is charged on top of it where the line is not exempt: solar goods are not on that tariff's Section 232 exemption list (HTSUS ch. 99 U.S. note 52(f)). A minimum import price of $0.38 per watt starts the same day. Goods entered before that date are not affected.",
+    "legal_reference": "Section 232 solar: Proclamation 11052"
+   }
+  ]
+ },
+ "wine_fr_qty": {
+  "ok": true,
+  "hts": "2204.21.50",
+  "digits": "22042150",
+  "origin": "FR",
+  "description": "Wine of fresh grapes, including fortified wines; grape must other than that of heading 2009 — Other wine; grape must with fermentation prevented or arrested by the addition of alcohol › In containers holding 2 liters or less › Other › Of an alcoholic strength by volume not over 14 percent vol. › Other",
+  "mfn": {
+   "rate": 0.53,
+   "text": "6.3¢/liter",
+   "exact": true
+  },
+  "us_mfn": {
+   "text": "6.3¢/liter",
+   "kind": "specific",
+   "exact": true,
+   "basis": "exact",
+   "quantity_field": {
+    "unit": "liter",
+    "label": "Liters",
+    "one": "liter",
+    "many": "liters",
+    "basis": null
+   },
+   "why_not": "",
+   "notes": [],
+   "duty": 47.25,
+   "ad_valorem_rate": null,
+   "ad_valorem_duty": 0.0,
+   "specific": {
+    "amount": 0.063,
+    "unit": "liter",
+    "rate_text": "6.3¢/liter",
+    "quantity": 750.0,
+    "quantity_unit": "liter",
+    "duty": 47.25,
+    "line": "6.3¢/liter × 750 liters = $47.25"
+   },
+   "quantity_source": "request",
+   "bracket": null,
+   "rate": 0.53,
+   "customs_value": 9000.0,
+   "summary": "MFN duty priced on the quantity given: 6.3¢/liter × 750 liters = $47.25. MFN duty $47.25, 0.53% of the customs value (6.3¢/liter)."
+  },
+  "section_301": {
+   "rate": 0.0,
+   "heading": null,
+   "label": null,
+   "partial": false,
+   "note": ""
+  },
+  "forced_labor": {
+   "rate": 9.47,
+   "status": "applies",
+   "tier": "10% combined floor (net of MFN)",
+   "reason": "EU/Taiwan goods pay MFN + forced-labor = 10% combined; MFN here is 0.5%, so the addition is 9.5%.",
+   "covered_origin": true
+  },
+  "section_232": {
+   "rate": 0.0,
+   "program": null,
+   "note": "",
+   "conditional": []
+  },
+  "section_338": {
+   "rate": 0.0,
+   "program": null,
+   "heading": null,
+   "partial": false,
+   "note": ""
+  },
+  "import_ban": null,
+  "upcoming": null,
+  "total_rate": 10.0,
+  "usmca": null,
+  "cafta_dr": null,
+  "notes": [],
+  "source": "HTSUS 2026 Revision 23 (USITC, in force 10 Nov 2026, checked 10 Nov 2026): MFN rates, China Section 301 lists (chapter 99 U.S. notes 20 and 31) and forced-labor Section 301 exemptions (U.S. note 52)",
+  "as_of": "2026-11-14",
+  "as_of_is_today": true,
+  "as_of_range": {
+   "min": "2026-11-14",
+   "max": "2027-11-14"
+  },
+  "scheduled_changes": []
+ },
+ "wine_ca": {
+  "ok": true,
+  "hts": "2204.21.50",
+  "digits": "22042150",
+  "origin": "CA",
+  "description": "Wine of fresh grapes, including fortified wines; grape must other than that of heading 2009 — Other wine; grape must with fermentation prevented or arrested by the addition of alcohol › In containers holding 2 liters or less › Other › Of an alcoholic strength by volume not over 14 percent vol. › Other",
+  "mfn": {
+   "rate": 5.0,
+   "text": "6.3¢/liter",
+   "exact": false
+  },
+  "us_mfn": {
+   "text": "6.3¢/liter",
+   "kind": "specific",
+   "exact": false,
+   "basis": "estimate",
+   "quantity_field": {
+    "unit": "liter",
+    "label": "Liters",
+    "one": "liter",
+    "many": "liters",
+    "basis": null
+   },
+   "why_not": "",
+   "notes": [],
+   "rate": 5.0
+  },
+  "section_301": {
+   "rate": 0.0,
+   "heading": null,
+   "label": null,
+   "partial": false,
+   "note": ""
+  },
+  "forced_labor": {
+   "rate": 10.0,
+   "status": "applies",
+   "tier": "10% flat (non-USMCA goods)",
+   "reason": "Goods that do not qualify under USMCA pay the 10.0% forced-labor tariff, which is included in the total. USMCA-qualifying goods (with a certification of origin) are exempt.",
+   "covered_origin": true
+  },
+  "section_232": {
+   "rate": 0.0,
+   "program": null,
+   "note": "",
+   "conditional": []
+  },
+  "section_338": {
+   "rate": 50.0,
+   "program": "Section 338 (Canada)",
+   "heading": "9903.03.12",
+   "partial": false,
+   "note": "An extra 50% on these Canadian goods since 22 Aug 2026 (heading 9903.03.12), on top of the regular duty and any Section 232 or Section 301 duty. USMCA origin does not exempt it."
+  },
+  "import_ban": {
+   "scope": "all",
+   "proclamation": "11061",
+   "since": "2026-09-29",
+   "message": "Import ban: this product can no longer be imported from Canada (Proclamation 11061, goods imported on or after 29 Sep 2026). The 50% duty shown applies only to goods that arrived before that date or if the ban is struck down."
+  },
+  "upcoming": null,
+  "total_rate": 65.0,
+  "usmca": {
+   "qualifying_total": 50.0,
+   "qualifying": "USMCA-qualifying goods (with a certification of origin): 0% MFN and no forced-labor tariff — plus the 50.0% Section 338 duty, 50.0% in all.",
+   "non_qualifying_total": 65.0,
+   "non_qualifying": "Non-qualifying goods: 5.0% MFN + 10.0% forced-labor tariff = 15.0% — plus the 50.0% Section 338 duty, 65.0% in all.",
+   "basis": "non_qualifying"
+  },
+  "cafta_dr": null,
+  "notes": [],
+  "source": "HTSUS 2026 Revision 23 (USITC, in force 10 Nov 2026, checked 10 Nov 2026): MFN rates, China Section 301 lists (chapter 99 U.S. notes 20 and 31) and forced-labor Section 301 exemptions (U.S. note 52); Section 338: HTSUS Rev. 23 U.S. note 51 and Proclamation 11076",
+  "as_of": "2026-11-14",
+  "as_of_is_today": true,
+  "as_of_range": {
+   "min": "2026-11-14",
+   "max": "2027-11-14"
+  },
+  "scheduled_changes": []
+ },
+ "bad_origin": {
+  "ok": false,
+  "error": "\"Atlantis\" is not a country of origin we recognise. Use the 2-letter ISO code, for example CN for China or GB for the United Kingdom."
+ },
+ "search": {
+  "results": [
+   {
+    "hts": "6109.10.00",
+    "description": "T-shirts, singlets, tank tops and similar garments, knitted or crocheted — Of cotton"
+   },
+   {
+    "hts": "6109.90.10",
+    "description": "T-shirts, singlets, tank tops and similar garments, knitted or crocheted — Of other textile materials › Of man-made fibers"
+   },
+   {
+    "hts": "6109.90.15",
+    "description": "T-shirts, singlets, tank tops and similar garments, knitted or crocheted — Of other textile materials › Of wool, with long sleeves"
+   },
+   {
+    "hts": "6109.90.40",
+    "description": "T-shirts, singlets, tank tops and similar garments, knitted or crocheted — Of other textile materials › Containing 70 percent or more by weight of silk or silk waste"
+   }
+  ]
+ }
+}
