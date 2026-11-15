@@ -1,3 +1,10 @@
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/zentria-flow-lockup-dark.png">
+    <img src="assets/zentria-flow-lockup-light.png" alt="Zentria Flow" width="340">
+  </picture>
+</p>
+
 # zentria-flow-mcp
 
 A [Model Context Protocol](https://modelcontextprotocol.io) server for [Zentria Flow](https://zentriaflow.com), a landed-cost and US tariff engine for importers. It lets an AI assistant look up US import tariffs instead of answering from memory.
