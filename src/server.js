@@ -5,7 +5,7 @@
 
 import { callTool, listTools } from './tools.js';
 
-export const SERVER_INFO = { name: 'zentria-flow-mcp', title: 'Zentria Flow', version: '0.3.1' };
+export const SERVER_INFO = { name: 'zentria-flow-mcp', title: 'Zentria Flow', version: '0.3.2' };
 export const PROTOCOL_VERSIONS = ['2025-11-25', '2025-06-18', '2025-03-26', '2024-11-05'];
 export const INSTRUCTIONS =
   'US tariff and landed-cost data from the Zentria Flow engine (zentriaflow.com). Use hts_search to find a ' +

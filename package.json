@@ -1,6 +1,6 @@
 {
   "name": "zentria-flow-mcp",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "MCP server for Zentria Flow: US tariff layers by HTS code and origin, origin comparison, HTSUS search and landed cost.",
   "keywords": [
     "mcp",

@@ -462,7 +462,7 @@ test('ZENTRIA_API_BASE: https only, except a local development host', () => {
 
 test('package.json, server.json and the server agree', () => {
   assert.equal(PKG.name, 'zentria-flow-mcp');
-  assert.equal(PKG.version, '0.3.1');
+  assert.equal(PKG.version, '0.3.2');
   assert.equal(PKG.private, false);
   assert.equal(PKG.license, 'MIT');
   assert.equal(PKG.type, 'module');
@@ -518,7 +518,7 @@ test('stdio: the binary answers one JSON line per request and writes logs to std
   assert.equal(answers[0].result.serverInfo.version, PKG.version);
   assert.equal(answers[1].result.tools.length, 4);
   assert.equal(answers[2].result.isError, true);
-  assert.match(err, /zentria-flow-mcp 0.3.1 ready \(stdio\), API https:\/\/zentriaflow\.com/);
+  assert.match(err, /zentria-flow-mcp 0.3.2 ready \(stdio\), API https:\/\/zentriaflow\.com/);
   assert.equal((out + err).includes(KEY), false);
 });
 

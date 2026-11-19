@@ -126,7 +126,7 @@ docker run -i --rm zentria-flow-mcp
 
 Add `-e ZENTRIA_API_KEY=your_key` to use `landed_cost`. MCP clients that start servers with Docker use `"command": "docker", "args": ["run", "-i", "--rm", "zentria-flow-mcp"]`.
 
-Each release is also published as a ready-made image, so the build step can be skipped: `docker run -i --rm ghcr.io/orhansavash/zentria-flow-mcp:0.3.1`.
+Each release is also published as a ready-made image, so the build step can be skipped: `docker run -i --rm ghcr.io/orhansavash/zentria-flow-mcp:0.3.2`.
 
 ### Local-model clients and other MCP clients
 
