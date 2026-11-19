@@ -3,16 +3,22 @@
   "name": "io.github.orhansavash/zentria-flow-mcp",
   "title": "Zentria Flow",
   "description": "US tariff layers by HTS code and origin, origin comparison, HTSUS search and landed cost.",
-  "version": "0.2.0",
+  "version": "0.3.1",
   "websiteUrl": "https://zentriaflow.com/developers",
   "repository": {
     "url": "https://github.com/orhansavash/zentria-flow-mcp",
     "source": "github"
   },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://zentriaflow.com/mcp"
+    }
+  ],
   "packages": [
     {
       "registryType": "oci",
-      "identifier": "ghcr.io/orhansavash/zentria-flow-mcp:0.2.0",
+      "identifier": "ghcr.io/orhansavash/zentria-flow-mcp:0.3.1",
       "transport": {
         "type": "stdio"
       },

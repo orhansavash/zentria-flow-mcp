@@ -44,6 +44,20 @@ Planning estimate, not a customs ruling. ...
 
 Each result also has `structuredContent` with the same values as JSON (`total_rate_pct`, `layers`, `scheduled_changes`, `checked_on`, `source`).
 
+## Remote server (no install)
+
+The three keyless tools also run as a hosted remote MCP server (Streamable HTTP):
+
+```
+https://zentriaflow.com/mcp
+```
+
+- Claude (web and desktop): Settings > Connectors > Add custom connector, then paste the address.
+- Claude Code: `claude mcp add --transport http zentria-flow https://zentriaflow.com/mcp`
+- Any other client that supports remote MCP servers: use the address as a Streamable HTTP server.
+
+All users of the remote server share 300 tariff checks and 1,500 searches an hour. `landed_cost` (API key) is only in the local server below. Setup guide: https://zentriaflow.com/use-in-claude
+
 ## Requirements
 
 Node.js 18 or newer. Nothing else to install.
@@ -112,7 +126,7 @@ docker run -i --rm zentria-flow-mcp
 
 Add `-e ZENTRIA_API_KEY=your_key` to use `landed_cost`. MCP clients that start servers with Docker use `"command": "docker", "args": ["run", "-i", "--rm", "zentria-flow-mcp"]`.
 
-Each release is also published as a ready-made image, so the build step can be skipped: `docker run -i --rm ghcr.io/orhansavash/zentria-flow-mcp:0.2.0`.
+Each release is also published as a ready-made image, so the build step can be skipped: `docker run -i --rm ghcr.io/orhansavash/zentria-flow-mcp:0.3.1`.
 
 ### Local-model clients and other MCP clients
 

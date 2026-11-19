@@ -5,7 +5,7 @@
 // error message.
 
 export const DEFAULT_BASE_URL = 'https://zentriaflow.com';
-export const USER_AGENT = 'zentria-flow-mcp/0.2.0';
+export const USER_AGENT = 'zentria-flow-mcp/0.3.1';
 const TIMEOUT_MS = 20_000;
 const MAX_BODY_CHARS = 2_000_000;
 
