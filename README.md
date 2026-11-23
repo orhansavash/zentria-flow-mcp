@@ -7,6 +7,8 @@
 
 # zentria-flow-mcp
 
+[![orhansavash/zentria-flow-mcp MCP server](https://glama.ai/mcp/servers/orhansavash/zentria-flow-mcp/badges/score.svg)](https://glama.ai/mcp/servers/orhansavash/zentria-flow-mcp)
+
 A [Model Context Protocol](https://modelcontextprotocol.io) server for [Zentria Flow](https://zentriaflow.com), a landed-cost and US tariff engine for importers. It lets an AI assistant look up US import tariffs instead of answering from memory.
 
 - Three tools work with no account and no API key.
