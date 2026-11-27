@@ -1,0 +1,11 @@
+{
+  "name": "zentria-flow",
+  "version": "0.3.2",
+  "description": "US import duty by HTS code and country of origin: every tariff layer (MFN, Section 301, 232, 338, forced-labor) added up, origin comparison and HTSUS search. Remote server, no API key.",
+  "mcpServers": {
+    "zentria-flow": {
+      "httpUrl": "https://zentriaflow.com/mcp"
+    }
+  },
+  "contextFileName": "GEMINI.md"
+}
